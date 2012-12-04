@@ -32,4 +32,6 @@ Usage:
     error_messages = {}
     error_messages[100]="Exception Error Code message NOT found in Exception_Code Class"
     error_messages[1001]="The error code 1001 has occurred"
-    error_messages[2001]="Location string Not 2 characters: Chess game locations are Column,Row where columns are a-h and rows are 1-8"
+    error_messages[2001]="Position string Not 2 characters: Chess game locations are Column,Row where columns are a-h and rows are 1-8"
+    error_messages[2002]="Board Index; parameter must be list of length 2 representing column in range 8-15 and row in range 8-15"
+    error_messages[2003]="Board Index value out of range: column in range 8-15 and row in range 8-15"

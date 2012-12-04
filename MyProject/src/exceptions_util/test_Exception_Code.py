@@ -29,6 +29,12 @@ class Test(unittest.TestCase):
         except ec.Exceptiton_Code as e:
             print e
 
+    def test_2003_message(self):
+        try:
+            raise ec.Exceptiton_Code(2003)
+        except ec.Exceptiton_Code as e:
+            print e
+
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']
     unittest.main()
