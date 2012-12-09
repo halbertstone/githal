@@ -43,16 +43,31 @@ class Board(object):
     000000000000000000000000
     000000000000000000000000
             abcdefgh                
-
     '''
-    #create an oversized array with the 8x8 board in the center
-    board=npcore.zeros((24,24))
     
-    board[8:16,8:16]=1
-    
-    black_pieces={}
+    '''
+    Board_domain is 24x24 to provide a buffer region
+    notation to set the value of matrix positions columns 8 thru 15 by rows 8 thru 15 to one
+    create an oversized array with the 8x8 board in the center
+    '''
+    board=npcore.zeros((24,24)) 
+    board[8:16,8:16]=1     
+
+    ''' maps black piece name to current location'''
+    black_pieces={} 
+    ''' maps white piece name to current location''' 
     white_pieces={}
-    
+    ''' I'm going with the idea of actually moving the piece name from In-Play map to Out-of-Play map
+        on_board.keys() will be a list of pieces In-Play
+        off_board.keys() will be a list of captured pieces
+        ----
+        this rather then setting each piece location to some position outside of the [8:16,8:16] board
+        The piece name will remain a key for mapping to the actual piece object in a Dict of pieces
+    '''
+    ''' maps black piece name to current location OFF Board; out of game; captured'''
+    dead_black={}
+    ''' maps white piece name to current location OFF Board; out of game; captured'''
+    dead_white={}
     
     position_dict={}
     inverse_dict=dict([(v,k) for (k,v) in position_dict.items()])
@@ -68,12 +83,6 @@ class Board(object):
     row_index=npcore.arange(8,16)
     row_map={}
     row_map.update(zip(rows,row_index))
-    '''
-    #   Board_domain is 24x24 to provide a buffer region
-    #   notation to set the value of matrix positions columns 8 thru 15 by rows 8 thru 15 to one
-    '''
-    board=npcore.zeros((24,24)) 
-   # board[8:16,8:16]=1     
     
     def decode_position(self,position):
       
@@ -113,9 +122,43 @@ class Board(object):
         pos = "{0}{1}".format(col,row)
         return pos
         
-                
-            
+    def move_piece(self,piece,destination):
+        '''
+        Once the move destination is selected, do the state update
+        '''
+        return("Not implemented yet")
+        pass
         
+    def get_valid_move_positions(self,piece):
+        '''
+        When piece to move is selected; determine where it can move
+        -- piece will know its current position
+        return list of valid destinations, empty if none
+        return list of capture targets
+        '''
+        return ("Not implemented yet")
+        pass
+
+    def is_move_valid(self,piece,destination):
+        '''
+        maybe a separate method to scan for targets locations that are occupied
+        -- possible capture
+        -- blocks long move, maybe step through moves near to far till edge or occupied
+        -- then determine if occupied by opponent
+        '''
+        return ("Not implemented yet, same params as move?")
+        pass
+    
+        
+    def capture_piece(self,piece):     
+        '''take piece out of pieces dictionary to dead_pieces dictionary
+        Maybe better to have the white_pieces and black_pieces dictionary values be pieces objects
+        that know about themselves, current position, on board (having [8:16,8:16] or not on board 
+        (having whites[0:8,0:2] or blacks[0:8,22:24]
+        '''    
+        return ("Not implemented yet;")
+        pass
+           
     
     def __init__(self):
         '''
@@ -140,8 +183,7 @@ class Board(object):
                                 ,knightBK='g8', b_g="g7"
                                 ,castleBK='h8', b_h="h7"
                                 )
-        dead_black={}
-        dead_white={}
+
   
 
 

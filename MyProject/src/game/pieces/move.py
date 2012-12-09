@@ -7,6 +7,7 @@ Created on Dec 5, 2012
 class Move(object):
     '''
     Use as an abstract class from which to derive move engine for each piece type
+    Or maybe a piece is a move   class piece(Move)
     '''
 
     def calculate_valid_move_targets(self):
@@ -41,5 +42,5 @@ class Move(object):
         Constructor
         '''
         self.position=currentPosition
-        self.possibleTargets=self.detrmine_extent_possible()
+        self.possibleTargets=self.detrmine_extent_possible(self.position)
         

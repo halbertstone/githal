@@ -22,10 +22,28 @@ class Test(unittest.TestCase):
 
     def tearDown(self):
         pass
-
-
-    def test_black_pieces(self):
+    
+#    def test_method_1(self):
+#        tboard = board.Board()
+       
+    def test_move_piece(self):
         tboard = board.Board()
+        print tboard.move_piece('queenW', 'c6')
+       
+    def test_is_move_valid(self):
+        tboard = board.Board()
+        print tboard.is_move_valid('kingB', 'e7')
+       
+    def test_capture_piece(self):
+        tboard = board.Board()
+        print tboard.capture_piece('castleQB')
+        
+    def test_get_valid_move_positions(self):
+        tboard = board.Board()
+        print tboard.get_valid_move_positions('pawnB')
+       
+    def test_black_pieces(self):
+        tboard = board.Board()      
         print "AssertTrue Black castleBQ found at 'a8'"
         self.assertTrue("a8" == tboard.black_pieces.get("castleBQ"), "Black castleBQ location NOT a8")
         print "AssertTrue Black knightBQ found at 'b8'"
@@ -42,7 +60,7 @@ class Test(unittest.TestCase):
         self.assertTrue("g8" == tboard.black_pieces.get("knightBK"), "Black knightBK location NOT g8")
         print "AssertTrue Black castleBK found at 'h8'"
         self.assertTrue("h8" == tboard.black_pieces.get("castleBK"), "Black castleBK location NOT h8")
- 
+
 
     def test_white_pieces(self):
         ttboard = board.Board()
