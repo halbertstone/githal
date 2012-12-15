@@ -16,7 +16,7 @@ class Test(unittest.TestCase):
 
     def setUp(self):
                 
-        print " ----- "
+        print " \n\n----- "
         print " -- Test Case: {0}".format(self._testMethodName)
         print " ----- "
         
